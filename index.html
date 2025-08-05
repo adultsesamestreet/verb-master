@@ -19,6 +19,37 @@
 
   <body>
     <div id="root"></div>
+    <style>
+      /* Prevent flash of unstyled content */
+      #root:empty::before {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        z-index: 9999;
+      }
+      
+      /* Loading animation for when JavaScript hasn't loaded yet */
+      #root:empty::after {
+        content: 'Loading Abel\'s Wordsmith...';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 18px;
+        color: #374151;
+        z-index: 10000;
+      }
+    </style>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { LoadingScreen } from "./LoadingScreen";
 import { Header } from "./Header";
 import { ObjectiveInput } from "./ObjectiveInput";
 import { ObjectiveDisplay } from "./ObjectiveDisplay";
@@ -13,6 +14,19 @@ import { RotateCcw, BookOpen, Target, Zap } from "lucide-react";
 export function WordsmithApp() {
   const [objectives, setObjectives] = useLocalStorage<LearningObjective[]>('wordsmith-objectives', []);
   const [isInputMode, setIsInputMode] = useState(objectives.length === 0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate initial loading and ensure components are ready
+  useState(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  });
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   const handleObjectivesSubmit = (objectiveTexts: string[]) => {
     const newObjectives: LearningObjective[] = objectiveTexts.map(text => ({

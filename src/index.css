@@ -4,6 +4,23 @@
 
 /* Abel's Wordsmith - Academic Learning Objectives Tool Design System */
 
+/* Prevent flash of unstyled content */
+html {
+  background-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Ensure smooth loading transitions */
+#root {
+  min-height: 100vh;
+  transition: opacity 0.3s ease-in-out;
+}
+
 @layer base {
   :root {
     /* Academic color palette - professional and accessible */
