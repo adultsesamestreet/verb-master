@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					hover: 'hsl(var(--primary-hover))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -51,6 +52,19 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				// Pedagogical highlighting colors
+				bloom: {
+					highlight: 'hsl(var(--bloom-highlight))',
+					border: 'hsl(var(--bloom-border))'
+				},
+				fink: {
+					highlight: 'hsl(var(--fink-highlight))',
+					border: 'hsl(var(--fink-border))'
+				},
+				changed: {
+					highlight: 'hsl(var(--changed-highlight))',
+					border: 'hsl(var(--changed-border))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

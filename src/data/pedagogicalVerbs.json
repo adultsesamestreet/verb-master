@@ -1,0 +1,72 @@
+{
+  "bloomsVerbs": {
+    "remember": {
+      "level": 1,
+      "category": "Remember",
+      "definition": "Retrieve, recognize, and recall relevant knowledge from long-term memory",
+      "synonyms": ["recall", "recognize", "identify", "retrieve", "list", "name", "state", "describe", "label", "match"]
+    },
+    "understand": {
+      "level": 2,
+      "category": "Understand",
+      "definition": "Construct meaning from oral, written, and graphic messages through interpreting, exemplifying, classifying, summarizing, inferring, comparing, and explaining",
+      "synonyms": ["comprehend", "explain", "interpret", "summarize", "classify", "compare", "exemplify", "paraphrase", "discuss", "illustrate"]
+    },
+    "apply": {
+      "level": 3,
+      "category": "Apply",
+      "definition": "Carry out or use a procedure through executing or implementing",
+      "synonyms": ["use", "execute", "implement", "demonstrate", "solve", "practice", "employ", "operate", "utilize", "exercise"]
+    },
+    "analyze": {
+      "level": 4,
+      "category": "Analyze",
+      "definition": "Break material into constituent parts, determining how the parts relate to one another and to an overall structure or purpose",
+      "synonyms": ["examine", "investigate", "dissect", "break down", "categorize", "differentiate", "distinguish", "compare", "contrast", "deconstruct"]
+    },
+    "evaluate": {
+      "level": 5,
+      "category": "Evaluate",
+      "definition": "Make judgments based on criteria and standards through checking and critiquing",
+      "synonyms": ["assess", "judge", "critique", "appraise", "review", "rate", "validate", "test", "measure", "criticize"]
+    },
+    "create": {
+      "level": 6,
+      "category": "Create",
+      "definition": "Put elements together to form a coherent or functional whole; reorganize elements into a new pattern or structure",
+      "synonyms": ["design", "construct", "develop", "formulate", "build", "generate", "compose", "plan", "produce", "invent"]
+    }
+  },
+  "finksVerbs": {
+    "foundational": {
+      "category": "Foundational Knowledge",
+      "definition": "Learning and remembering important information and ideas",
+      "synonyms": ["know", "remember", "understand", "recall", "recognize", "comprehend", "grasp"]
+    },
+    "application": {
+      "category": "Application",
+      "definition": "Learning how to engage in some new kind of action, which may be intellectual, physical, social, etc.",
+      "synonyms": ["apply", "use", "practice", "implement", "execute", "perform", "operate"]
+    },
+    "integration": {
+      "category": "Integration",
+      "definition": "Learning to connect ideas, people, and realms of life",
+      "synonyms": ["connect", "relate", "link", "combine", "synthesize", "integrate", "unify"]
+    },
+    "humanDimension": {
+      "category": "Human Dimension",
+      "definition": "Learning about oneself and others",
+      "synonyms": ["reflect", "consider", "contemplate", "examine", "explore", "investigate"]
+    },
+    "caring": {
+      "category": "Caring",
+      "definition": "Learning to care about something",
+      "synonyms": ["value", "appreciate", "respect", "cherish", "embrace", "adopt"]
+    },
+    "learningToLearn": {
+      "category": "Learning How to Learn",
+      "definition": "Learning about the process of learning itself",
+      "synonyms": ["monitor", "regulate", "adapt", "adjust", "optimize", "improve"]
+    }
+  }
+}
