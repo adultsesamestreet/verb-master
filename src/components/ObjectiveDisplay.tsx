@@ -2,10 +2,11 @@ import { useState, useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Textarea } from "@/components/ui/textarea";
 import { SynonymPopover } from "./SynonymPopover";
 import { LearningObjective, Highlight } from "@/types";
 import { findPedagogicalTerms, generateId } from "@/utils/textAnalysis";
-import { Undo2, FileText, Copy, CheckCircle } from "lucide-react";
+import { Undo2, FileText, Copy, CheckCircle, Edit3 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface ObjectiveDisplayProps {
@@ -17,6 +18,7 @@ interface ObjectiveDisplayProps {
 export function ObjectiveDisplay({ objective, onObjectiveUpdate, index }: ObjectiveDisplayProps) {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const highlights = useMemo(() => 
     findPedagogicalTerms(objective.current), 
@@ -48,6 +50,14 @@ export function ObjectiveDisplay({ objective, onObjectiveUpdate, index }: Object
       title: "Word replaced",
       description: `"${highlight.word}" → "${newWord}"`,
     });
+  };
+
+  const handleTextChange = (newText: string) => {
+    const updatedObjective: LearningObjective = {
+      ...objective,
+      current: newText
+    };
+    onObjectiveUpdate(updatedObjective);
   };
 
   const handleUndo = () => {
@@ -169,21 +179,53 @@ export function ObjectiveDisplay({ objective, onObjectiveUpdate, index }: Object
       </CardHeader>
       
       <CardContent className="space-y-4">
-        <div className="text-base leading-relaxed p-4 bg-muted/50 rounded-lg border">
-          {renderHighlightedText()}
-        </div>
+        {isEditing ? (
+          <div className="space-y-2">
+            <Textarea
+              value={objective.current}
+              onChange={(e) => handleTextChange(e.target.value)}
+              className="min-h-[120px] text-base leading-relaxed"
+              placeholder="Enter your learning objective..."
+            />
+            <div className="flex justify-end gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setIsEditing(false)}
+              >
+                Done Editing
+              </Button>
+            </div>
+          </div>
+        ) : (
+          <div className="text-base leading-relaxed p-4 bg-muted/50 rounded-lg border">
+            {renderHighlightedText()}
+          </div>
+        )}
         
         <div className="flex justify-between items-center">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleUndo}
-            disabled={objective.changes.length === 0}
-            className="flex items-center gap-2"
-          >
-            <Undo2 className="h-4 w-4" />
-            Undo
-          </Button>
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleUndo}
+              disabled={objective.changes.length === 0}
+              className="flex items-center gap-2"
+            >
+              <Undo2 className="h-4 w-4" />
+              Undo
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setIsEditing(!isEditing)}
+              className="flex items-center gap-2"
+            >
+              <Edit3 className="h-4 w-4" />
+              {isEditing ? "View" : "Edit"}
+            </Button>
+          </div>
           
           <Button
             variant="outline"
